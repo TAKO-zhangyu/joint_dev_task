@@ -32,8 +32,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
-  p sports
+  p sports.compact
 
 end
 
@@ -51,9 +50,7 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-  number2 = numbers1.map do |i|
-    i * 10
-  end
+  number2 = numbers1.map { |number| number * 10 }
   p number2
 
 end
@@ -62,7 +59,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  p array.map!{|x| x.to_i}
+  p array.map!(&:to_i)
 
 end
 
