@@ -160,11 +160,11 @@ class UserQ17
     @name = user[:name]
     @age = user[:age]
     @gender = user[:gender]
-    @admin = uaer[:admin]
+    @admin = user[:admin]
 end
 
   def info
-    admin = @admin ? “有り” : “無し” 
+    admin = @admin ? "有り" : "無し"
     puts "名前：#{@name} "
     puts "年齢：#{@age} "
     puts "性別：#{@gender} "
