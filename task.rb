@@ -184,6 +184,15 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(**user)
+    @name = user[:name]
+    @age = user[:age]
+  end
+
+  def introduce
+    @age > 20 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜，#{@name}です！！！"
+  end
+  
 
 end
 
@@ -198,8 +207,8 @@ end
 
 class Item
   # 以下を修正して下さい
-
-  def initialize(name)
+  attr_reader :name
+  def initialize(name:)
     @name = name
   end
 end
@@ -212,12 +221,28 @@ end
 
 class UserQ20
   # 以下に回答を記載
-
+def initialize(**zoo)
+  @name = zoo[:name]
+  @infant = zoo[:entry_fee][:infant]
+  @children = zoo[:entry_fee][:children]
+  @adult = zoo[:entry_fee][:adult]
+  @senior =zoo[:entry_fee][:senior]
 end
 
-class Zoo
-  # 以下に回答を記載
-
+class Zoo 
+# 以下に回答を記載
+def info_entry_fee(user)
+  case user.age
+   when 0..5
+     puts "#{user.name}さんの入場料金は#{@infant}円です。"
+   when 6..12
+     puts "#{user.name}さんの入場料金は#{@children}円です。"
+   when 13..64
+     puts "#{user.name}さんの入場料金は#{@adult}円です。"
+   when 65..120
+     puts "#{user.name}さんの入場料金は#{@senior}円です。"
+   end
+  end
 end
 
 
