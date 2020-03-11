@@ -221,27 +221,36 @@ end
 
 class UserQ20
   # 以下に回答を記載
-def initialize(**zoo)
-  @name = zoo[:name]
-  @infant = zoo[:entry_fee][:infant]
-  @children = zoo[:entry_fee][:children]
-  @adult = zoo[:entry_fee][:adult]
-  @senior =zoo[:entry_fee][:senior]
+  attr_reader :name, :age
+
+  def initialize(**user)
+    @name = user[:name]
+    @age = user[:age]
+  end
+
 end
 
 class Zoo 
-# 以下に回答を記載
+def initialize(**params)
+    @name = params[:name]
+    @infant = params[:entry_fee][:infant]
+    @children = params[:entry_fee][:children]
+    @adult = params[:entry_fee][:adult]
+    @senior =params[:entry_fee][:senior]
+  end
+
 def info_entry_fee(user)
-  case user.age
+  fee = case user.age
    when 0..5
-     puts "#{user.name}さんの入場料金は#{@infant}円です。"
+     @infant
    when 6..12
-     puts "#{user.name}さんの入場料金は#{@children}円です。"
+     @children
    when 13..64
-     puts "#{user.name}さんの入場料金は#{@adult}円です。"
+     @adult
    when 65..120
-     puts "#{user.name}さんの入場料金は#{@senior}円です。"
+     @senior
    end
+   puts "#{user.name}さんの入場料金は#{fee}円です。"
   end
 end
 
